@@ -17,20 +17,20 @@ def combine_filenames(f1, f2):
        also adds some random numbers at the end to avoid filename collisions
     '''
 
-    tokens = f1.split(' ')
+    tokens = f1.split('_')
     prefix = tokens[:3] # word number word
     prefix.append('Combined') # word number word combined
     prefix.extend(tokens[3:5])
 
-    prefix.append(f1.split(' ')[-1].split('.')[0])
-    prefix.append(f2.split(' ')[-1].split('.')[0])
+    prefix.append(f1.split('_')[-1].split('.')[0])
+    prefix.append(f2.split('_')[-1].split('.')[0])
 
     random_numbers = [str(u) for u in list(range(10))]
     shuffle(random_numbers)
     random_numbers = ''.join(random_numbers)
     prefix.append(random_numbers)
 
-    result = ' '.join(prefix)
+    result = '_'.join(prefix)
 
     return result + '.csv'
 
